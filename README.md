@@ -1,3 +1,5 @@
+# かんたんデジタル案内所 Ver.8
+
 # かんたんデジタル案内所 Ver.4
 
 Cloudflare Pages + Pages Functions + D1 で動作する問い合わせ機能付き静的サイトです。
