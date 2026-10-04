@@ -1,5 +1,5 @@
 const p=new URLSearchParams(location.search),target=document.querySelector('[name=target]');
-const map={carlog:'CarLog',pricelog:'PriceLog',android:'Androidスマホ編',windows:'Windowsパソコン編'};
+const map={carlog:'CarLog',pricelog:'PriceLog',android:'スマホ編（Android）',windows:'パソコン編（Windows）'};
 if(map[p.get('app')]) target.value=map[p.get('app')];
 const form=document.querySelector('#contactForm'), statusEl=document.querySelector('#status'), submit=form.querySelector('button[type=submit]');
 form.addEventListener('submit',async e=>{
