@@ -1,6 +1,6 @@
 const json = (data, status = 200) => new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 const clean = (v, max) => String(v ?? '').trim().slice(0, max);
-function ticketId(){ const a=new Uint8Array(6); crypto.getRandomValues(a); return 'Q-'+Array.from(a,b=>b.toString(36).padStart(2,'0')).join('').toUpperCase().slice(0,10); }
+function ticketId(){ const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; const a=new Uint8Array(16); crypto.getRandomValues(a); return 'Q-'+Array.from(a,b=>chars[b%chars.length]).join(''); }
 export async function onRequestPost({request, env}) {
   try {
     const body = await request.json();
