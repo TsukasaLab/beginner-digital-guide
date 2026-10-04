@@ -1,20 +1,28 @@
-# かんたんデジタル案内所 Ver.1
+# かんたんデジタル案内所 Ver.4
 
-初期公開用の静的サイトです。
+Cloudflare Pages + Pages Functions + D1 で動作する問い合わせ機能付き静的サイトです。
 
-## 現在入っているもの
-- トップページ
-- Androidスマホ編
-- Windowsパソコン編
-- Alexa / SwitchBotなど便利な使い方
-- CarLog / PriceLogへの将来導線
-- 広告枠（忍者AdMaxコード差し替え待ち）
-- 共通問い合わせフォームUI
-- `?app=carlog` / `?app=pricelog` 等による対象自動選択
+## D1 Binding
+Pages の Binding 名を `DB`、接続先を `beginner-digital-guide-db` に設定します。
 
-## 公開前に接続するもの
-1. 忍者AdMaxの広告コード
-2. 問い合わせフォーム → tsukasa.lab2610@gmail.com へのメール送信処理
-3. スパム対策（Cloudflare Turnstile推奨）
+## 管理者パスワード
+Cloudflare Pages の Settings > Variables and Secrets で、Secret として `ADMIN_PASSWORD` を追加してください。
+値はGitHubやHTMLには書かず、十分長いパスワードを設定します。
 
-メールアドレスはHTMLへ直接記載せず、サーバー側の環境変数等で管理する想定です。
+## 1台限定管理
+最初に `/admin/` で正しい管理者パスワードを入力したブラウザに、ランダムな管理端末キーを HttpOnly/Secure Cookie として発行します。D1にはキーそのものではなくSHA-256ハッシュだけを保存します。以後、別PC・別ブラウザはパスワードを知っていても管理画面へログインできません。
+
+管理端末では12時間の管理セッションを発行します。ログアウトしても端末登録は維持されます。
+
+### PC故障・Cookie削除などで管理画面に入れなくなった場合
+Cloudflare D1 Console で次を実行すると端末登録だけ初期化できます。
+
+```sql
+DELETE FROM admin_devices;
+DELETE FROM admin_login_attempts;
+```
+
+その後、次に正しい管理者パスワードでログインしたPCが新しい唯一の管理端末になります。
+
+## 問い合わせ
+一般ユーザーは `/contact.html` から送信し、受付番号で `/inquiry-status.html` から回答を確認します。

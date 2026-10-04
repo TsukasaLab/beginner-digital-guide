@@ -1,0 +1,5 @@
+const input=document.querySelector('#ticket'), result=document.querySelector('#result'), btn=document.querySelector('#check');
+const q=new URLSearchParams(location.search).get('ticket'); if(q) input.value=q;
+async function check(){ const t=input.value.trim(); if(!t){result.textContent='受付番号を入力してください。';return} result.textContent='確認中です…'; try{const r=await fetch('/api/inquiry?ticket='+encodeURIComponent(t));const d=await r.json();if(!r.ok||!d.ok)throw new Error(d.error||'確認できませんでした。');const x=d.inquiry,answered=x.status==='answered';result.innerHTML=`<h2>${answered?'回答済み':'まだ回答していません'}</h2><dl><dt>受付番号</dt><dd>${esc(x.ticket_id)}</dd><dt>対象</dt><dd>${esc(x.target)}</dd><dt>種類</dt><dd>${esc(x.category)}</dd></dl>${answered?`<h3>回答</h3><div class="answer">${esc(x.answer).replace(/\n/g,'<br>')}</div>`:'<p>回答までしばらくお待ちください。後でもう一度このページから確認できます。</p>'}`;}catch(e){result.textContent=e.message}}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+btn.addEventListener('click',check); if(q) check();
