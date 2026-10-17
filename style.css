@@ -34,3 +34,7 @@ footer a{color:#486b8c;text-decoration:none}footer a:hover{text-decoration:under
 .local-policy{margin:20px 0 48px;background:#f4f9ff;border:1px solid #d6e8f7;border-radius:18px;padding:24px}.local-policy h2{margin-top:0}.policy-badges{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.policy-badges span{background:#fff;border:1px solid #cbdff0;border-radius:999px;padding:6px 11px;font-size:13px;color:#275777;font-weight:700}
 .section-heading{margin:52px 0 20px}.planned-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:48px}.planned-card{display:flex;gap:16px;background:#fff;border:1px solid #dce8f3;border-radius:17px;padding:20px;box-shadow:0 7px 20px #173e6208}.planned-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#edf6ff;color:#1378d3;font-size:25px;font-weight:800;flex:0 0 auto}.planned-card h3{margin:5px 0 7px}.planned-card p{margin:0;color:#536a7e;line-height:1.75}.soon-badge{font-size:12px;font-weight:700;color:#557086;background:#eef3f7;border-radius:999px;padding:4px 8px}
 @media(max-width:700px){.info-grid,.choice-cards,.planned-tools{grid-template-columns:1fr}.simple-table>div{grid-template-columns:1fr;gap:3px}.article-body h2{margin-top:38px}.planned-card{padding:16px}.pagehead h1{font-size:30px}}
+
+.tool-status.developing{background:#fff6df;color:#946300;border-color:#f0d492}
+
+.route-icon svg,.account-icon svg,.meal-icon svg{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}

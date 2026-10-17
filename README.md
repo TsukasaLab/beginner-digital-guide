@@ -1,4 +1,4 @@
-# かんたんデジタル案内所 Ver.9
+# かんたんデジタル案内所 Ver.11
 
 スマホ初心者向けの購入前・購入後・Googleアカウント記事を追加。
 便利ツールに今後の開発予定欄を追加。
@@ -47,3 +47,17 @@ DELETE FROM admin_login_attempts;
 - 便利ツールページを追加し、CarLog / PriceLogを公開リンクで掲載
 - 問い合わせ説明文を「不要です。」で改行
 - 受付番号コピーボタンの見た目を改善
+
+
+## Ver.10
+- 便利ツールに開発中のMealLogを追加
+- MealLogリンク: https://tsukasalab.github.io/MealLog/
+- クラウド保存を使うツールがあることに合わせ、便利ツールの保存方針説明を調整
+
+
+## Ver.11
+- 便利ツールにRouteLogのリンクを追加
+  - https://tsukasalab.github.io/RouteLog/
+- 便利ツールにAccountLogのリンクを追加
+  - https://tsukasalab.github.io/AccountLog/
+- 下部の準備中欄にあったAccountLogの重複表示を削除
